@@ -405,8 +405,18 @@
             <div class="abstract-content">
                 分发糖果** n 个孩子站成一排。给你一个整数数组 ratings 表示每个孩子的评分。 **
 ** 你需要按照以下要求，给这些孩子分发糖果：**
-** 每个孩子至少分配到 1 个糖果。**** 相邻两个孩子评分更高的孩子会获得更多的糖果。**** 请你给每个孩子分发糖果，计算并返回需要准备的 最少糖果数目 。** 
-123456789101112131415161718192021222324class Solution &#123;public:    int candy(vector&lt;int&gt;&amp; ratings) &#123;        int pre = ...
+
+** 每个孩子至少分配到 1 个糖果。** 
+** 相邻两个孩子评分更高的孩子会获得更多的糖果。**** 请你给每个孩子分发糖果，计算并返回需要准备的 最少糖果数目** 。**
+
+解题思路：
+
+初始化变量作用：
+pre记录上一个数的大小，inc记录递增数列的长度，dec记录递减数列的长度。
+默认情况下，将数组作为递增数列看待，所以pre &#x3D; 1， inc &#x3D; 1， dec &#x3D; 0。
+
+
+当前元素大于等于上一位元...
             </div>
             <!-- read more -->
             <div class="abstract-post-meta">
@@ -415,6 +425,17 @@
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/07/30</span>
                 </div>
                 <!-- tags -->
+                    <div class="abstract-tags" >
+        <span class="post-category" data-categories="算法">
+            <i class="fas fa-folder post-category-icon"></i>
+            <span class="post-category-text">
+                算法
+            </span>
+        </span>
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
+</div>
+
             </div>
         </article>
         <div class="index-post-divider"></div>
@@ -652,6 +673,14 @@ Run server1$ hexo ...
                 <span class="iconfont-archer">&#xe606;</span>
                 日常
             </span>
+            <span class="sidebar-tag-name" data-tags="C++">
+                <span class="iconfont-archer">&#xe606;</span>
+                C++
+            </span>
+            <span class="sidebar-tag-name" data-tags="算法">
+                <span class="iconfont-archer">&#xe606;</span>
+                算法
+            </span>
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -669,6 +698,10 @@ Run server1$ hexo ...
         <span class="sidebar-category-name" data-categories="美食">
             <span class="iconfont-archer">&#xe60a;</span>
             美食
+        </span>
+        <span class="sidebar-category-name" data-categories="算法">
+            <span class="iconfont-archer">&#xe60a;</span>
+            算法
         </span>
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
