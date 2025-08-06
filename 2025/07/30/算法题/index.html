@@ -18,7 +18,7 @@
 <meta property="og:description" content="分发糖果n 个孩子站成一排。给你一个整数数组 ratings 表示每个孩子的评分。你需要按照以下要求，给这些孩子分发糖果  每个孩子至少分配到 1 个糖果  相邻两个孩子评分更高的孩子会获得更多的糖果。请你给每个孩子分发糖果，计算并返回需要准备的 最少糖果数目  解题思路：  初始化变量作用： pre记录上一个数的大小，inc记录递增数列的长度，dec记录递减数列的长度。 默认情况下，将数组作为递">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-30T11:26:34.000Z">
-<meta property="article:modified_time" content="2025-08-05T07:55:32.682Z">
+<meta property="article:modified_time" content="2025-08-06T07:44:12.615Z">
 <meta property="article:author" content="Kidimos">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="算法">
@@ -295,7 +295,7 @@
 
                 <!-- 文章字数统计 -->
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">3.2k</span>Reading time: <span class="post-count reading-time">14 min</span></span>
+                        <span>Word count: <span class="post-count word-count">3.5k</span>Reading time: <span class="post-count reading-time">15 min</span></span>
                     </div>
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
@@ -553,13 +553,23 @@
 </li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> ret = INT_MIN;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getMaxSum</span><span class="params">(TreeNode* node)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(node == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> leftGain = <span class="built_in">max</span>(<span class="built_in">getMaxSum</span>(node-&gt;left), <span class="number">0</span>);</span><br><span class="line">        <span class="type">int</span> rightGain = <span class="built_in">max</span>(<span class="built_in">getMaxSum</span>(node-&gt;right), <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> NewSum = node-&gt;val + leftGain + rightGain;</span><br><span class="line">        ret = <span class="built_in">max</span>(ret, NewSum);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node-&gt;val + <span class="built_in">max</span>(leftGain, rightGain);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">getMaxSum</span>(root);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="合并K个升序链表"><a href="#合并K个升序链表" class="headerlink" title="合并K个升序链表"></a>合并K个升序链表</h3><p><strong>给你一个链表数组，每个链表都已经按升序排列。</strong><br><strong>请你将所有链表合并到一个升序链表中，返回合并后的链表。</strong></p>
+<p>解题思路：</p>
+<ol>
+<li>用分治的方法进行合并</li>
+<li>将 k 个链表配对并将同一对中的链表合并；</li>
+<li>不断合并得到最终结果。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">merge</span><span class="params">(ListNode* node1, ListNode* node2)</span></span>&#123;</span><br><span class="line">        ListNode* newHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">        ListNode* pre = newHead;</span><br><span class="line">        <span class="keyword">while</span>(node1 != <span class="literal">nullptr</span> &amp;&amp; node2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(node1-&gt;val &lt;= node2-&gt;val)&#123;</span><br><span class="line">                pre-&gt;next = node1;</span><br><span class="line">                node1 = node1-&gt;next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                pre-&gt;next = node2;</span><br><span class="line">                node2 = node2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            pre = pre-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(node1 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            pre-&gt;next = node1;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(node2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            pre-&gt;next = node2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newHead-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeSort</span><span class="params">(vector&lt;ListNode*&gt;&amp; lists, <span class="type">int</span> left, <span class="type">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left &gt; right) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">if</span>(left == right) <span class="keyword">return</span> lists[left];</span><br><span class="line">        <span class="type">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">        ListNode* leftNode = <span class="built_in">mergeSort</span>(lists, left, mid);</span><br><span class="line">        ListNode* rightNode = <span class="built_in">mergeSort</span>(lists, mid + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">merge</span>(leftNode, rightNode);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(vector&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> n = lists.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">mergeSort</span>(lists, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </article>
     <!-- license -->
         <div class="license-wrapper">
             <p>Author：<a href="http://example.com">Kidimos</a>
             <p>Link：<a href="http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/</a>
             <p>Publish date：<a href="http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">July 30th 2025, 7:26:34 pm</a>
-            <p>Update date：<a href="http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">August 5th 2025, 3:55:32 pm</a>
+            <p>Update date：<a href="http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">August 6th 2025, 3:44:12 pm</a>
             <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     <!-- paginator -->
@@ -624,7 +634,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text">分发糖果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90"><span class="toc-number">2.</span> <span class="toc-text">文本左右对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%90%E4%B8%B2"><span class="toc-number">3.</span> <span class="toc-text">串联所有单词的子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="toc-number">4.</span> <span class="toc-text">接雨水</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2"><span class="toc-number">5.</span> <span class="toc-text">最小覆盖子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="toc-number">6.</span> <span class="toc-text">K个一组翻转链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C"><span class="toc-number">7.</span> <span class="toc-text">二叉树中的最大路径和</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text">分发糖果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90"><span class="toc-number">2.</span> <span class="toc-text">文本左右对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%90%E4%B8%B2"><span class="toc-number">3.</span> <span class="toc-text">串联所有单词的子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="toc-number">4.</span> <span class="toc-text">接雨水</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2"><span class="toc-number">5.</span> <span class="toc-text">最小覆盖子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="toc-number">6.</span> <span class="toc-text">K个一组翻转链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C"><span class="toc-number">7.</span> <span class="toc-text">二叉树中的最大路径和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="toc-number">8.</span> <span class="toc-text">合并K个升序链表</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -676,6 +686,10 @@
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+            <span class="sidebar-tag-name" data-tags="美化">
+                <span class="iconfont-archer">&#xe606;</span>
+                美化
+            </span>
             <span class="sidebar-tag-name" data-tags="C++">
                 <span class="iconfont-archer">&#xe606;</span>
                 C++
@@ -683,10 +697,6 @@
             <span class="sidebar-tag-name" data-tags="算法">
                 <span class="iconfont-archer">&#xe606;</span>
                 算法
-            </span>
-            <span class="sidebar-tag-name" data-tags="美化">
-                <span class="iconfont-archer">&#xe606;</span>
-                美化
             </span>
             <span class="sidebar-tag-name" data-tags="美食">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -706,13 +716,13 @@
 
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
-        <span class="sidebar-category-name" data-categories="算法">
-            <span class="iconfont-archer">&#xe60a;</span>
-            算法
-        </span>
         <span class="sidebar-category-name" data-categories="MacOS">
             <span class="iconfont-archer">&#xe60a;</span>
             MacOS
+        </span>
+        <span class="sidebar-category-name" data-categories="算法">
+            <span class="iconfont-archer">&#xe60a;</span>
+            算法
         </span>
         <span class="sidebar-category-name" data-categories="美食">
             <span class="iconfont-archer">&#xe60a;</span>
