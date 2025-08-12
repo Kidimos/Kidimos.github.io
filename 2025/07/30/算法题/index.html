@@ -18,7 +18,7 @@
 <meta property="og:description" content="分发糖果n 个孩子站成一排。给你一个整数数组 ratings 表示每个孩子的评分。你需要按照以下要求，给这些孩子分发糖果  每个孩子至少分配到 1 个糖果  相邻两个孩子评分更高的孩子会获得更多的糖果。请你给每个孩子分发糖果，计算并返回需要准备的 最少糖果数目  解题思路：  初始化变量作用： pre记录上一个数的大小，inc记录递增数列的长度，dec记录递减数列的长度。 默认情况下，将数组作为递">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-30T11:26:34.000Z">
-<meta property="article:modified_time" content="2025-08-08T06:41:49.128Z">
+<meta property="article:modified_time" content="2025-08-12T07:17:26.537Z">
 <meta property="article:author" content="Kidimos">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="算法">
@@ -295,7 +295,7 @@
 
                 <!-- 文章字数统计 -->
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">4.1k</span>Reading time: <span class="post-count reading-time">18 min</span></span>
+                        <span>Word count: <span class="post-count word-count">4.5k</span>Reading time: <span class="post-count reading-time">19 min</span></span>
                     </div>
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
@@ -575,22 +575,27 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestConsecutive</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; numsSet;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> num : nums)&#123;</span><br><span class="line">            numsSet.<span class="built_in">insert</span>(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> longStreak = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">const</span> <span class="type">int</span>&amp; num : numsSet)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!numsSet.<span class="built_in">count</span>(num - <span class="number">1</span>))&#123;</span><br><span class="line">                <span class="type">int</span> current = num;</span><br><span class="line">                <span class="type">int</span> currentStreak = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(numsSet.<span class="built_in">count</span>(current + <span class="number">1</span>))&#123;</span><br><span class="line">                    current += <span class="number">1</span>;</span><br><span class="line">                    currentStreak += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                longStreak = <span class="built_in">max</span>(longStreak, currentStreak);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> longStreak;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">longestConsecutive</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        Set&lt;Integer&gt; num_set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> num : nums)&#123;</span><br><span class="line">            num_set.add(num);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">longestStreak</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> num : num_set)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!num_set.contains(num - <span class="number">1</span>))&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">current</span> <span class="operator">=</span> num;</span><br><span class="line">                <span class="type">int</span> <span class="variable">currentStreak</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(num_set.contains(current + <span class="number">1</span>))&#123;</span><br><span class="line">                    current += <span class="number">1</span>;</span><br><span class="line">                    currentStreak += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                longestStreak = Math.max(longestStreak, currentStreak);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> longestStreak;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p><strong>给定两个字符串 text1 和 text2，返回这两个字符串的最长 公共子序列 的长度。如果不存在 公共子序列 ，返回 0 。</strong><br><strong>一个字符串的 子序列 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。</strong><br><strong>例如，”ace” 是 “abcde” 的子序列，但 “aec” 不是 “abcde” 的子序列。</strong><br><strong>两个字符串的 公共子序列 是这两个字符串所共同拥有的子序列。</strong></p>
+<p>解题思路：</p>
+<ol>
+<li>这道题需要使用动态规划的方法来解决。</li>
+<li>我们需要得知，n长度的text1和m长度的text2之间，最多有多长的公共子序列，因此，可以将问题分解为text1[0:i]与text2[0:j]之间的公共子序列。</li>
+<li>因此使用动态规划，转移状态方程式为:dp[i][j] &#x3D; dp[i - 1][j- 1]以及dp[i][j] &#x3D; max(dp[i-1][j], dp[i][j-1]);</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(string text1, string text2)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = text<span class="number">1.</span><span class="built_in">size</span>(), m = text<span class="number">2.</span><span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">            <span class="type">char</span> c1 = text<span class="number">1.</span><span class="built_in">at</span>(i - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j &lt;= m;j++)&#123;</span><br><span class="line">                <span class="type">char</span> c2 = text<span class="number">2.</span><span class="built_in">at</span>(j - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span>(c1 == c2)&#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n][m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </article>
     <!-- license -->
         <div class="license-wrapper">
             <p>Author：<a href="http://example.com">Kidimos</a>
             <p>Link：<a href="http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/</a>
             <p>Publish date：<a href="http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">July 30th 2025, 7:26:34 pm</a>
-            <p>Update date：<a href="http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">August 8th 2025, 2:41:49 pm</a>
+            <p>Update date：<a href="http://example.com/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">August 12th 2025, 3:17:26 pm</a>
             <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2025/08/07/%E5%B0%9A%E7%B1%B3%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95/" title="尚米网络面试">
-                    <div class="nextTitle">尚米网络面试</div>
-                </a>
         </li>
         <li class="previous">
                 <div class="prevSlogan">Previous Post</div>
@@ -650,7 +655,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text">分发糖果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90"><span class="toc-number">2.</span> <span class="toc-text">文本左右对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%90%E4%B8%B2"><span class="toc-number">3.</span> <span class="toc-text">串联所有单词的子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="toc-number">4.</span> <span class="toc-text">接雨水</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2"><span class="toc-number">5.</span> <span class="toc-text">最小覆盖子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="toc-number">6.</span> <span class="toc-text">K个一组翻转链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C"><span class="toc-number">7.</span> <span class="toc-text">二叉树中的最大路径和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="toc-number">8.</span> <span class="toc-text">合并K个升序链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97"><span class="toc-number">9.</span> <span class="toc-text">最长连续序列</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text">分发糖果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90"><span class="toc-number">2.</span> <span class="toc-text">文本左右对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%90%E4%B8%B2"><span class="toc-number">3.</span> <span class="toc-text">串联所有单词的子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="toc-number">4.</span> <span class="toc-text">接雨水</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2"><span class="toc-number">5.</span> <span class="toc-text">最小覆盖子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="toc-number">6.</span> <span class="toc-text">K个一组翻转链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C"><span class="toc-number">7.</span> <span class="toc-text">二叉树中的最大路径和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="toc-number">8.</span> <span class="toc-text">合并K个升序链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97"><span class="toc-number">9.</span> <span class="toc-text">最长连续序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97"><span class="toc-number">10.</span> <span class="toc-text">最长公共子序列</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -667,20 +672,15 @@
         
         
         
-        
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 6
+        Total : 5
         </div>
         <!-- search  -->
     </div>
     <div class="post-archive">
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/07</span>
-            <a class="archive-post-title" href="/2025/08/07/%E5%B0%9A%E7%B1%B3%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95/">尚米网络面试</a>
-        </li>
         <li class="archive-post-item">
             <span class="archive-post-date">07/30</span>
             <a class="archive-post-title" href="/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>
@@ -707,14 +707,6 @@
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
-            <span class="sidebar-tag-name" data-tags="C++">
-                <span class="iconfont-archer">&#xe606;</span>
-                C++
-            </span>
-            <span class="sidebar-tag-name" data-tags="算法">
-                <span class="iconfont-archer">&#xe606;</span>
-                算法
-            </span>
             <span class="sidebar-tag-name" data-tags="美食">
                 <span class="iconfont-archer">&#xe606;</span>
                 美食
@@ -727,6 +719,14 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 美化
             </span>
+            <span class="sidebar-tag-name" data-tags="C++">
+                <span class="iconfont-archer">&#xe606;</span>
+                C++
+            </span>
+            <span class="sidebar-tag-name" data-tags="算法">
+                <span class="iconfont-archer">&#xe606;</span>
+                算法
+            </span>
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -737,10 +737,6 @@
 
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
-        <span class="sidebar-category-name" data-categories="算法">
-            <span class="iconfont-archer">&#xe60a;</span>
-            算法
-        </span>
         <span class="sidebar-category-name" data-categories="美食">
             <span class="iconfont-archer">&#xe60a;</span>
             美食
@@ -748,6 +744,10 @@
         <span class="sidebar-category-name" data-categories="MacOS">
             <span class="iconfont-archer">&#xe60a;</span>
             MacOS
+        </span>
+        <span class="sidebar-category-name" data-categories="算法">
+            <span class="iconfont-archer">&#xe60a;</span>
+            算法
         </span>
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
