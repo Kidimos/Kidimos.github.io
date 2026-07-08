@@ -1,0 +1,60 @@
+/* ============================================
+   纯 CSS 星级评分组件
+   用法：
+     <span class="star-rating" style="--rating: 4.5;"></span>
+   可选参数（通过 style 属性）：
+     --star-size:   星星大小，默认 20px
+     --star-gap:    星星间距，默认 2px
+     --star-color:  填充色，默认 #f5a623
+     --star-empty:  空星色，默认 #ddd
+  ============================================ */
+
+.star-rating {
+  --star-size: 20px;
+  --star-gap: 2px;
+  --star-color: #f5a623;
+  --star-empty: #ddd;
+  --num-stars: 5;
+  --rating: 0;
+  --percent: calc(var(--rating) / var(--num-stars) * 100%);
+
+  display: inline-flex;
+  position: relative;
+  font-size: var(--star-size);
+  line-height: 1;
+  letter-spacing: var(--star-gap);
+  vertical-align: middle;
+}
+
+/* 当星级评分在标题中时，居中显示 */
+h4:has(.star-rating),
+h3:has(.star-rating) {
+  text-align: center;
+}
+
+.star-rating::before {
+  content: "★★★★★";
+  background: linear-gradient(
+    90deg,
+    var(--star-color) var(--percent),
+    var(--star-empty) var(--percent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 带数字的紧凑版 */
+.star-rating-num {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+}
+
+.star-rating-num .num {
+  font-size: 13px;
+  color: #999;
+  font-weight: 600;
+  line-height: 1;
+}
