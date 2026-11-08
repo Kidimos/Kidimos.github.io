@@ -134,13 +134,6 @@
   </url>
   
   <url>
-    <loc>https://kidimos.github.io/tags/%E7%BE%8E%E5%8C%96/</loc>
-    <lastmod>2026-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://kidimos.github.io/tags/Cpp/</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -175,6 +168,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://kidimos.github.io/tags/%E7%BE%8E%E5%8C%96/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -186,13 +186,6 @@
   
   <url>
     <loc>https://kidimos.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kidimos.github.io/categories/MacOS/</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -214,6 +207,13 @@
   
   <url>
     <loc>https://kidimos.github.io/categories/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kidimos.github.io/categories/MacOS/</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
