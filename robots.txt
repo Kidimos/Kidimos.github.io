@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /page/
+
+Sitemap: https://kidimos.github.io/sitemap.xml

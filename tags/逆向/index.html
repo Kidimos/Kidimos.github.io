@@ -4,19 +4,20 @@
 <!-- keywords -->
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kidimos">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="Kidimos">
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
-    <meta name="description" content="Kidimos 的博客 — 分享编程、美食、动漫、游戏等。涵盖 Android 逆向、算法、NeoVim 配置、终端美化等内容。">
-    <meta name="description" content="Kidimos 的博客 — 分享编程、美食、动漫、游戏等。涵盖 Android 逆向、算法、NeoVim 配置、终端美化等内容。">
+    <link rel="canonical" href="https://kidimos.github.io/tags/逆向/index.html">
+    <meta name="description" content="Kidimos&#39;s Studio - Welcome to my Blog!">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Kidimos&#39;s Blog">
+<meta property="og:title" content="标签：逆向 · Kidimos&#39;s Studio">
 <meta property="og:url" content="https://kidimos.github.io/tags/%E9%80%86%E5%90%91/index.html">
 <meta property="og:site_name" content="Kidimos&#39;s Blog">
-<meta property="og:description" content="Kidimos 的博客 — 分享编程、美食、动漫、游戏等。涵盖 Android 逆向、算法、NeoVim 配置、终端美化等内容。">
+<meta property="og:description" content="Kidimos&#39;s Studio - Welcome to my Blog!">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kidimos.github.io/assets/%E6%97%B6%E9%92%9F42.jpg">
 <meta property="article:author" content="Kidimos">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="美食">
@@ -24,11 +25,15 @@
 <meta property="article:tag" content="Android逆向">
 <meta property="article:tag" content="NeoVim">
 <meta property="article:tag" content="Hexo博客">
-<meta name="twitter:card" content="summary">
-    <meta http-equiv="Cache-control" content="no-cache">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kidimos.github.io/assets/%E6%97%B6%E9%92%9F42.jpg">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="icon" href="https://kidimos-hexo-1310064224.cos.ap-nanjing.myqcloud.com/hexi-anime/20230722030143-0.jpg">
-    <title>Kidimos&#39;s Studio</title>
+    <meta name="theme-color" content="#121212">
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+        <link rel="alternate" href="/atom.xml" title="Kidimos&#39;s Studio." type="application/atom+xml">
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <title>标签：逆向 · Kidimos&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -212,9 +217,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
-        if (typeof window.$ == undefined) {
+        // 修正：|| 而不是 ==；jsdelivr 失败时同步回退到本地 jQuery
+        if (typeof window.$ === 'undefined' || typeof window.jQuery === 'undefined') {
             console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js" />')
+            document.write('<script src="/lib/jquery.min.js"><\/script>')
         }
     </script>
         <!-- header -->
@@ -449,9 +455,9 @@ res目录
                 技术
             </span>
         </span>
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="逆向">逆向</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="安全">安全</a>
+        <a class="post-tag" href="javascript:void(0);" rel="external nofollow noreferrer" data-tags="Android">Android</a>
+        <a class="post-tag" href="javascript:void(0);" rel="external nofollow noreferrer" data-tags="逆向">逆向</a>
+        <a class="post-tag" href="javascript:void(0);" rel="external nofollow noreferrer" data-tags="安全">安全</a>
 </div>
 
             </div>
@@ -465,19 +471,13 @@ res目录
             <footer class="footer footer-unloaded">
     <!-- social  -->
         <div class="social">
-                            <a href="mailto:kidimosctl@gmail.com" class="iconfont-archer email" title="email" ></a>
+                            <a href="mailto:kidimosctl@gmail.com" rel="external nofollow noreferrer" class="iconfont-archer email" title="email" ></a>
                 <a href="//github.com/Kidimos" class="iconfont-archer github" target="_blank" title="github"></a>
-                <span class="iconfont-archer wechat" title="wechat">
-                    <img class="profile-qr" src="/assets/example_qr.png" />
-                </span>
-                <span class="iconfont-archer qq" title="qq">
-                    <img class="profile-qr" src="/865055361" />
-                </span>
 
         </div>
     <!-- powered by Hexo  -->
     <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" rel="external nofollow noreferrer" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" rel="external nofollow noreferrer" target="_blank">Archer</a></span>
     </div>
     <!-- website approve for Chinese user -->
     <!-- 不蒜子  -->
@@ -505,11 +505,9 @@ res目录
         
         
         
-        
-        
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 9
+        Total : 7
         </div>
         <!-- search  -->
     </div>
@@ -519,10 +517,6 @@ res目录
         <li class="archive-post-item">
             <span class="archive-post-date">07/11</span>
             <a class="archive-post-title" href="/2026/07/11/Android%E9%80%86%E5%90%91%E7%9F%A5%E8%AF%86/">Android逆向知识</a>
-        </li>
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/11</span>
-            <a class="archive-post-title" href="/2026/07/11/%E5%AE%B6%E5%B8%B8%E8%8F%9C%E8%B0%B1/">家常菜谱</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">07/08</span>
@@ -535,10 +529,6 @@ res目录
                 </ul>
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/18</span>
-            <a class="archive-post-title" href="/2025/08/18/%E9%A1%BA%E5%BE%B7%E7%BE%8E%E9%A3%9F%E6%94%B6%E9%9B%86/">顺德美食收集</a>
-        </li>
         <li class="archive-post-item">
             <span class="archive-post-date">07/30</span>
             <a class="archive-post-title" href="/2025/07/30/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>
@@ -585,41 +575,29 @@ res目录
                 <span class="iconfont-archer">&#xe606;</span>
                 开发工具
             </span>
-            <span class="sidebar-tag-name" data-tags="美食">
-                <span class="iconfont-archer">&#xe606;</span>
-                美食
-            </span>
-            <span class="sidebar-tag-name" data-tags="烹饪">
-                <span class="iconfont-archer">&#xe606;</span>
-                烹饪
-            </span>
-            <span class="sidebar-tag-name" data-tags="菜谱">
-                <span class="iconfont-archer">&#xe606;</span>
-                菜谱
-            </span>
-            <span class="sidebar-tag-name" data-tags="家常菜">
-                <span class="iconfont-archer">&#xe606;</span>
-                家常菜
-            </span>
-            <span class="sidebar-tag-name" data-tags="Hexo">
-                <span class="iconfont-archer">&#xe606;</span>
-                Hexo
-            </span>
             <span class="sidebar-tag-name" data-tags="美化">
                 <span class="iconfont-archer">&#xe606;</span>
                 美化
+            </span>
+            <span class="sidebar-tag-name" data-tags="Cpp">
+                <span class="iconfont-archer">&#xe606;</span>
+                Cpp
+            </span>
+            <span class="sidebar-tag-name" data-tags="算法">
+                <span class="iconfont-archer">&#xe606;</span>
+                算法
+            </span>
+            <span class="sidebar-tag-name" data-tags="美食">
+                <span class="iconfont-archer">&#xe606;</span>
+                美食
             </span>
             <span class="sidebar-tag-name" data-tags="日常">
                 <span class="iconfont-archer">&#xe606;</span>
                 日常
             </span>
-            <span class="sidebar-tag-name" data-tags="C++">
+            <span class="sidebar-tag-name" data-tags="Hexo">
                 <span class="iconfont-archer">&#xe606;</span>
-                C++
-            </span>
-            <span class="sidebar-tag-name" data-tags="算法">
-                <span class="iconfont-archer">&#xe606;</span>
-                算法
+                Hexo
             </span>
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -639,14 +617,6 @@ res目录
             <span class="iconfont-archer">&#xe60a;</span>
             工具
         </span>
-        <span class="sidebar-category-name" data-categories="美食">
-            <span class="iconfont-archer">&#xe60a;</span>
-            美食
-        </span>
-        <span class="sidebar-category-name" data-categories="博客">
-            <span class="iconfont-archer">&#xe60a;</span>
-            博客
-        </span>
         <span class="sidebar-category-name" data-categories="MacOS">
             <span class="iconfont-archer">&#xe60a;</span>
             MacOS
@@ -654,6 +624,14 @@ res目录
         <span class="sidebar-category-name" data-categories="算法">
             <span class="iconfont-archer">&#xe60a;</span>
             算法
+        </span>
+        <span class="sidebar-category-name" data-categories="美食">
+            <span class="iconfont-archer">&#xe60a;</span>
+            美食
+        </span>
+        <span class="sidebar-category-name" data-categories="博客">
+            <span class="iconfont-archer">&#xe60a;</span>
+            博客
         </span>
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -663,6 +641,36 @@ res目录
     </div>
 </div>
 
+        <!-- local search -->
+        <div class="local-search-mask" id="local-search-mask"></div>
+<div class="local-search" id="local-search" aria-hidden="true">
+    <div class="local-search__head">
+        <input
+            type="search"
+            id="local-search-input"
+            class="local-search__input"
+            placeholder="搜索文章…"
+            autocomplete="off"
+            spellcheck="false"
+        />
+        <button type="button" class="local-search__close" id="local-search-close" aria-label="关闭搜索">&times;</button>
+    </div>
+    <div class="local-search__hint" id="local-search-hint">
+        输入关键词开始搜索（支持标题、标签与正文）
+    </div>
+    <ul class="local-search__results" id="local-search-results"></ul>
+</div>
+<script>
+    window.localSearchConfig = {
+        path: '/search.json',
+        empty: '没有找到相关内容',
+        limit: 20
+    }
+</script>
+<script src="/scripts/local-search.js" async></script>
+
+        <!-- music player -->
+        
         <!-- site-meta -->
         <script>
     var siteMetaRoot = "/"
